@@ -8,9 +8,12 @@ RUN apt update && apt install -y \
         libmcrypt-dev \
         libmemcached-dev \
         libpng12-dev \
-        nodejs-legacy \
-        npm \
+        build-essential \
         zlib1g-dev \
+
+  # node & npm
+  && curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash - \
+  && sudo apt-get install -y nodejs \
 
   # composer
   && curl -o /tmp/composer-setup.php https://getcomposer.org/installer \
