@@ -12,7 +12,7 @@ RUN apt update && apt install -y \
         zlib1g-dev \
 
   # node & npm
-  && curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash - \
+  && curl -sL https://deb.nodesource.com/setup_8.x | bash - \
   && apt update && apt install -y nodejs \
 
   # composer
