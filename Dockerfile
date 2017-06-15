@@ -1,13 +1,14 @@
-FROM php:5.6-fpm
-MAINTAINER Alex Ho "mralexho@gmail.com"
+FROM php:7.1
+MAINTAINER Mikołaj Pich "m.pich@outlook.com"
 
-RUN apt-get update && apt-get install -y \
+RUN apt update && apt install -y \
         git \
         libfreetype6-dev \
         libjpeg62-turbo-dev \
         libmcrypt-dev \
         libmemcached-dev \
         libpng12-dev \
+        nodejs-legacy \
         npm \
         zlib1g-dev \
 
