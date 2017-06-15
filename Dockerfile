@@ -13,7 +13,7 @@ RUN apt update && apt install -y \
 
   # node & npm
   && curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash - \
-  && sudo apt-get install -y nodejs \
+  && apt update && apt install -y nodejs \
 
   # composer
   && curl -o /tmp/composer-setup.php https://getcomposer.org/installer \
