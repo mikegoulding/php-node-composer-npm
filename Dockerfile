@@ -40,10 +40,8 @@ RUN apt update && apt install -y \
 
   && pecl install \
         memcached-2.2.0 \
-        uploadprogress \
 
   && docker-php-ext-enable \
         memcached \
-        uploadprogress \
 
   && docker-php-source delete
