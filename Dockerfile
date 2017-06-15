@@ -34,7 +34,7 @@ RUN apt update && apt install -y \
 
   && docker-php-ext-install -j${NPROC} gd \
         mcrypt \
-        mysql \
+        mysqli \
         opcache \
         pdo_mysql \
 
