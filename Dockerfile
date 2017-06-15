@@ -39,7 +39,7 @@ RUN apt update && apt install -y \
         pdo_mysql \
 
   && pecl install \
-        memcached-2.2.0 \
+        memcached-3.0.3 \
 
   && docker-php-ext-enable \
         memcached \
