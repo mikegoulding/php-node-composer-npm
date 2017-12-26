@@ -3,6 +3,7 @@ MAINTAINER Mikołaj Pich "m.pich@outlook.com"
 
 RUN apt update && apt install -y \
         git \
+        jq \
         libfreetype6-dev \
         libjpeg62-turbo-dev \
         libmcrypt-dev \
