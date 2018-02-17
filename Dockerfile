@@ -9,6 +9,7 @@ RUN apt update && apt install -y \
         libmcrypt-dev \
         libmemcached-dev \
         libpng-dev \
+        gnupg \
         build-essential \
         zlib1g-dev \
 
