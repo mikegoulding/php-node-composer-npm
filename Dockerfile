@@ -6,7 +6,6 @@ RUN apt update && apt install -y \
         jq \
         libfreetype6-dev \
         libjpeg62-turbo-dev \
-        libmcrypt-dev \
         libmemcached-dev \
         libpng-dev \
         gnupg \
@@ -38,7 +37,6 @@ RUN apt update && apt install -y \
   && NPROC=$(getconf _NPROCESSORS_ONLN) \
 
   && docker-php-ext-install -j${NPROC} gd \
-        mcrypt \
         mysqli \
         opcache \
         pdo_mysql \
