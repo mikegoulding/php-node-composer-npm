@@ -8,7 +8,7 @@ RUN apt update && apt install -y \
         libjpeg62-turbo-dev \
         libmcrypt-dev \
         libmemcached-dev \
-        libpng12-dev \
+        libpng-dev \
         build-essential \
         zlib1g-dev \
 
