@@ -1,4 +1,4 @@
-FROM php:7.1
+FROM php:7.2
 MAINTAINER Mikołaj Pich "m.pich@outlook.com"
 
 RUN apt update && apt install -y \
