@@ -34,9 +34,9 @@ RUN apt update && apt install -y \
   && docker-php-source delete
   
   # Installing npm global libraries
-  RUN sudo npm install -g fs \
-  && sudo npm install -g casperjs
+  RUN npm install -g fs \
+  && npm install -g casperjs
   
   # Installing terminus
   RUN composer global require "pantheon-systems/terminus:^1" \
-  && sudo ln -s .composer/vendor/bin/terminus /usr/bin/terminus
+  && ln -s .composer/vendor/bin/terminus /usr/bin/terminus
