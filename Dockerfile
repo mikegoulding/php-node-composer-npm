@@ -35,8 +35,8 @@ RUN apt update && apt install -y \
   
   # Installing npm global libraries
   RUN sudo npm install -g fs \
-  && sudo npm install -g casperjs \
+  && sudo npm install -g casperjs
   
   # Installing terminus
   RUN composer global require "pantheon-systems/terminus:^1" \
-  && sudo ln -s .composer/vendor/bin/terminus /usr/bin/terminus \
+  && sudo ln -s .composer/vendor/bin/terminus /usr/bin/terminus
