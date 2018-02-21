@@ -1,5 +1,5 @@
 FROM php:7.2
-MAINTAINER Mikołaj Pich "m.pich@outlook.com"
+MAINTAINER Mike Goulding "mike@ashday.com"
 
 RUN apt update && apt install -y \
         git \
@@ -15,6 +15,11 @@ RUN apt update && apt install -y \
   # node & npm
   && curl -sL https://deb.nodesource.com/setup_8.x | bash - \
   && apt update && apt install -y nodejs \
+  && sudo apt-get install -y build-essential chrpath libssl-dev libxft-dev \
+  && sudo apt-get install libfreetype6 libfreetype6-dev \
+  && sudo apt-get install libfontconfig1 libfontconfig1-dev \
+  && sudo npm install -g fs \
+  && sudo npm install -g casperjs \
 
   # composer
   && curl -o /tmp/composer-setup.php https://getcomposer.org/installer \
@@ -25,6 +30,11 @@ RUN apt update && apt install -y \
 
   # composer parallel install
   && composer global require hirak/prestissimo:^0.3 \
+  
+  # installing terminus
+  && composer global require "pantheon-systems/terminus:^1" \
+  && export PATH=$PATH:~/.composer/vendor/bin:~/.config/composer/vendor/bin:tests/scripts \
+  && sudo ln -s .composer/vendor/bin/terminus /usr/bin/terminus \
 
   && docker-php-source extract \
 
