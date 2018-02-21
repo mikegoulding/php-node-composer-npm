@@ -30,6 +30,11 @@ RUN apt update && apt install -y \
   && composer global require hirak/prestissimo:^0.3 \
 
   && docker-php-source extract \
+  
+  && NPROC=$(getconf _NPROCESSORS_ONLN) \
+
+  && docker-php-ext-install -j${NPROC} gd \
+        zip \
 
   && docker-php-source delete
   
