@@ -30,11 +30,6 @@ RUN apt update && apt install -y \
 
   # composer parallel install
   && composer global require hirak/prestissimo:^0.3 \
-  
-  # installing terminus
-  && composer global require "pantheon-systems/terminus:^1" \
-  && export PATH=$PATH:~/.composer/vendor/bin:~/.config/composer/vendor/bin:tests/scripts \
-  && sudo ln -s .composer/vendor/bin/terminus /usr/bin/terminus \
 
   && docker-php-source extract \
 
@@ -58,3 +53,6 @@ RUN apt update && apt install -y \
         memcached \
 
   && docker-php-source delete
+  
+  RUN composer global require "pantheon-systems/terminus:^1" \
+  && sudo ln -s .composer/vendor/bin/terminus /usr/bin/terminus \
