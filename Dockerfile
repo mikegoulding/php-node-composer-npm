@@ -15,11 +15,9 @@ RUN apt update && apt install -y \
   # node & npm
   && curl -sL https://deb.nodesource.com/setup_8.x | bash - \
   && apt update && apt install -y nodejs \
-  && sudo apt-get install -y build-essential chrpath libssl-dev libxft-dev \
-  && sudo apt-get install libfreetype6 libfreetype6-dev \
-  && sudo apt-get install libfontconfig1 libfontconfig1-dev \
-  && sudo npm install -g fs \
-  && sudo npm install -g casperjs \
+  && apt install -y build-essential chrpath libssl-dev libxft-dev \
+  && apt install libfreetype6 libfreetype6-dev \
+  && apt install libfontconfig1 libfontconfig1-dev \
 
   # composer
   && curl -o /tmp/composer-setup.php https://getcomposer.org/installer \
@@ -33,26 +31,12 @@ RUN apt update && apt install -y \
 
   && docker-php-source extract \
 
-  && docker-php-ext-configure gd \
-      --with-gd \
-      --with-freetype-dir=/usr/include/ \
-      --with-jpeg-dir=/usr/include/ \
-      --with-png-dir=/usr/include/ \
-
-  && NPROC=$(getconf _NPROCESSORS_ONLN) \
-
-  && docker-php-ext-install -j${NPROC} gd \
-        mysqli \
-        opcache \
-        pdo_mysql \
-
-  && pecl install \
-        memcached-3.0.3 \
-
-  && docker-php-ext-enable \
-        memcached \
-
   && docker-php-source delete
   
+  # Installing npm global libraries
+  RUN sudo npm install -g fs \
+  && sudo npm install -g casperjs \
+  
+  # Installing terminus
   RUN composer global require "pantheon-systems/terminus:^1" \
   && sudo ln -s .composer/vendor/bin/terminus /usr/bin/terminus \
