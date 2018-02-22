@@ -11,6 +11,7 @@ RUN apt update && apt install -y \
         gnupg \
         build-essential \
         zlib1g-dev \
+        wget \
 
   # node & npm
   && curl -sL https://deb.nodesource.com/setup_8.x | bash - \
