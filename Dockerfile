@@ -42,6 +42,12 @@ RUN apt update && apt install -y \
   RUN npm install -g fs \
   && npm install -g casperjs
   
+  RUN export PHANTOM_JS="phantomjs-1.9.8-linux-x86_64" \
+  && wget https://bitbucket.org/ariya/phantomjs/downloads/$PHANTOM_JS.tar.bz2 \
+  && tar xvjf $PHANTOM_JS.tar.bz2 \
+  && mv $PHANTOM_JS /usr/local/share \
+  && ln -sf /usr/local/share/$PHANTOM_JS/bin/phantomjs /usr/local/bin
+  
   # Installing terminus
   RUN composer global require "pantheon-systems/terminus:^1" \
   && ln -s .composer/vendor/bin/terminus /usr/bin/terminus
