@@ -11,4 +11,4 @@ RUN sudo apt-get update \
   
   # Installing terminus
   RUN composer global require "pantheon-systems/terminus:^1" \
-  && ln -s .composer/vendor/bin/terminus /usr/bin/terminus
+  && sudo ln -s .composer/vendor/bin/terminus /usr/bin/terminus
