@@ -3,10 +3,7 @@ MAINTAINER Mike Goulding "mike@ashday.com"
 
 RUN sudo apt-get update \
   && sudo apt-get install -y build-essential chrpath libssl-dev libxft-dev libfreetype6 libfreetype6-dev \
-  && sudo apt-get install libfontconfig1 libfontconfig1-dev \
-
-  # composer parallel install
-  && composer global require hirak/prestissimo:^0.3 \
+  && sudo apt-get install libfontconfig1 libfontconfig1-dev
   
   # Installing npm global libraries
   RUN sudo npm install -g fs \
