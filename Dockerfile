@@ -2,7 +2,7 @@ FROM circleci/php:7.0-cli-node-browsers
 MAINTAINER Mike Goulding "mike@ashday.com"
 
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash - \
-  && sudo apt update && apt install -y nodejs \
+  && sudo apt update && sudo apt install -y nodejs \
   && sudo apt install -y build-essential chrpath libssl-dev libxft-dev \
   && sudo apt install libfreetype6 libfreetype6-dev \
   && sudo apt install libfontconfig1 libfontconfig1-dev \
