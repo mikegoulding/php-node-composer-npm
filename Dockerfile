@@ -1,22 +1,12 @@
 FROM circleci/php:7.0-cli-node-browsers
 MAINTAINER Mike Goulding "mike@ashday.com"
 
-RUN sudo apt update \
-  && sudo apt install -y build-essential chrpath libssl-dev libxft-dev \
-  && sudo apt install libfreetype6 libfreetype6-dev \
-  && sudo apt install libfontconfig1 libfontconfig1-dev \
+RUN sudo apt-get update \
+  && sudo apt-get install -y build-essential chrpath libssl-dev libxft-dev libfreetype6 libfreetype6-dev \
+  && sudo apt-get install libfontconfig1 libfontconfig1-dev \
 
   # composer parallel install
   && composer global require hirak/prestissimo:^0.3 \
-
-  && docker-php-source extract \
-  
-  && NPROC=$(getconf _NPROCESSORS_ONLN) \
-
-  && docker-php-ext-install -j${NPROC} gd \
-        zip \
-
-  && docker-php-source delete
   
   # Installing npm global libraries
   RUN sudo npm install -g fs \
