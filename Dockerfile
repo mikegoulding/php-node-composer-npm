@@ -5,10 +5,17 @@ RUN sudo apt-get update \
   && sudo apt-get install -y build-essential chrpath libssl-dev libxft-dev libfreetype6 libfreetype6-dev \
   && sudo apt-get install libfontconfig1 libfontconfig1-dev
   
+  RUN sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E1DF1F24
+  RUN cat > /etc/apt/sources.list.d/git.list << EOF \
+  deb-src http://ppa.launchpad.net/git-core/ppa/ubuntu precise main \
+  EOF 
+  
   RUN sudo apt-get install software-properties-common python-software-properties \
-  && sudo add-apt-repository ppa:git-core/ppa \
   && sudo apt-get update \
-  && sudo apt-get install git
+  && sudo apt-get build-dep git \
+  && sudo apt-get -b source git \
+  && sudo dpkg -i git_*.deb git-man_*.deb \
+  && sudo dpkg -P git-core
   
   # Installing npm global libraries
   RUN sudo npm install -g fs \
