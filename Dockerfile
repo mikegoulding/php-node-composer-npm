@@ -5,7 +5,8 @@ RUN sudo apt-get update \
   && sudo apt-get install -y build-essential chrpath libssl-dev libxft-dev libfreetype6 libfreetype6-dev \
   && sudo apt-get install libfontconfig1 libfontconfig1-dev
   
-  RUN sudo add-apt-repository ppa:git-core/ppa \
+  RUN sudo apt-get install software-properties-common python-software-properties \
+  && sudo add-apt-repository ppa:git-core/ppa \
   && sudo apt-get update \
   && sudo apt-get install git
   
