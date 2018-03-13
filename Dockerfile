@@ -9,7 +9,8 @@ RUN sudo apt-get update \
   
   # Installing npm global libraries
   RUN sudo npm install -g fs \
-  && sudo npm install -g casperjs
+  && sudo npm install -g casperjs \
+  && sudo npm install -g gulp
   
   # Installing terminus
   RUN composer global require "pantheon-systems/terminus:^1" \
