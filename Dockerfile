@@ -13,8 +13,9 @@ RUN sudo apt-get update \
   && sudo npm install -g gulp
   
   # Installing terminus
-  RUN curl -O https://raw.githubusercontent.com/pantheon-systems/terminus-installer/master/builds/installer.phar \
-  && php installer.phar install
+  RUN cd /home/circleci/ \
+  && sudo curl -O https://raw.githubusercontent.com/pantheon-systems/terminus-installer/master/builds/installer.phar \
+  && sudo php installer.phar install
   
   # Updating PATH
-  RUN echo 'PATH="/home/circleci/vendor/bin:$PATH"' >> ~/.bashrc
+  RUN sudo echo 'PATH="/home/circleci/vendor/bin:$PATH"' >> ~/.bashrc
